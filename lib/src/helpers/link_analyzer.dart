@@ -29,7 +29,7 @@ class LinkAnalyzer {
       if (infoJson != null) {
         _info = Metadata.fromJson(infoJson);
         if (!_info.timeout.isAfter(DateTime.now())) {
-          async.unawaited(CacheManager.deleteKey(url));
+          CacheManager.deleteKey(url);
         }
       }
     } catch (e) {
